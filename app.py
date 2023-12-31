@@ -55,8 +55,8 @@ def get_petittube_url():
             youtube = YouTube(video_url)
             youtube_title = youtube.title
             views = youtube.views
-        except Exception as e:
-            return jsonify({"error": f"Failed to retrieve YouTube title: {str(e)}"})
+        except Exception:
+            return jsonify({"error": "Failed to retrieve YouTube title. Please try again later."})
 
         return jsonify({
             "petittube_url": video_url, 
